@@ -35,8 +35,6 @@ namespace fs
 class SDMMCFS : public FS
 {
 protected:
-    sdmmc_card_t* _card;
-
 #ifdef SOC_SDMMC_USE_GPIO_MATRIX
     int8_t _pin_clk = -1;
     int8_t _pin_cmd = -1;
@@ -47,6 +45,7 @@ protected:
 #endif
 
 public:
+    sdmmc_card_t* _card;
     SDMMCFS(FSImplPtr impl);
     bool setPins(int clk, int cmd, int d0);
     bool setPins(int clk, int cmd, int d0, int d1, int d2, int d3);
